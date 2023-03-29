@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My App</title>
+        <link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Bienvenue sur la page de gestion de COMMITS (Communication Information System)</h1> 
+        </header>
+
+    <div class="page">
+        <div class = "measure_data">
+            
+            <h2>Données mesurées des capteurs</h2>
+            
+            <ul>
+                <li>Température : {{ temperature }} °C</li>
+                <li>Bruit : {{ sound }} dB</li>
+                <li>Taux de CO : {{ percentage }} ppm</li>
+                <li>Nombre de message total : {{ number }} messages</li>
+            </ul>
+
+        </div>
+
+        <div class = "message">
+
+            <h2>Message à envoyer</h2>
+
+            <form action="." method="POST">
+                
+                <label for="text">Message :</label>
+                <input class="textbox" type="text" name="text" maxlenght="16">
+                <br>
+                <label for="name">Pseudo :</label>
+                <input class="textbox" type="text" name="name" maxlenght="10">
+                <br>
+                <button type="submit">OK</button>
+            </form>
+
+            <p>Dernier message : {{ message }} </p>
+            <p>Envoyé par : {{ name }} </p>
+        </div>
+
+        <div class="graph">
+            <h2>Graphique</h2>
+            <!-- iframe d'exemple - remplacer avec l'iframe voulu du grafana local -->
+            <iframe src="http://192.168.1.30:3000/d-solo/Y1iyagmgk/local-data?orgId=1&theme=dark&panelId=2" width="450" height="200" frameborder="0"></iframe> 
+            
+        </div>
+    </div>
+    
+        <footer>
+            <p>A projet made by Jules et Alex</p>
+        </footer>
+
+    </body>
+
+</html>
