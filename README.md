@@ -5,14 +5,15 @@
 PROJET : 
 
 Nom de projet : COMMunication InformaTion System (COMMITS)
+
 By : Jules P. & Alejandra M.
 
 Monitoring de statistiques utiles dans la gestion d'un local et lever d'alertes lors du dépassement de valeurs définies
 avec avertissement auprès des utilisateurs.
 
+Ce projet à été conçu avec un Raspberry Pi 4 et des capteurs Grove. 
 
-
-PREREQUIS : 
+# PREREQUIS : 
 
 --> Installer la bibliothèque python supplémentaire suivante :
 - influxdb
@@ -22,7 +23,7 @@ Les autres bibliothèques sont normalement inclues avec l'image fournie avec le 
 --> Installer Grafana et InfluxDB sur le RPI
 
 
--> InfluxDB
+#### InfluxDB
 
 sudo apt update
 sudo apt upgrade -y
@@ -47,13 +48,16 @@ grant all privileges on local to grafana
 
 show users
 
+
 --> Retour attendu :
 
 user admin
----- -----
+
+\---- -----
+
 grafana true
 
--> Grafana
+#### Grafana
 
 wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
@@ -71,15 +75,21 @@ Configurer comme souhaité l'affchage graphique des données et remplacer l'URL 
 
 Changer les paramètres aux valeurs suivantes dnas le fichier /etc/grafana/grafana.ini
 /!\ Enlevez les ; pour activer les lignes et grafana doit être redémarrez pour prendre en compte les nouveaux paramètres.
-----------------------------
+
+\----------------------------
+
 allow_embedding = true
-[auth.anonymous]
-# enable anonymous access
+
+\[auth.anonymous]
+
+\# enable anonymous access
+
 enabled = true
-----------------------------
+
+\----------------------------
 
 
-DESCRIPTION DU CONTENU ET DE LA REPARTITION DU CODE :
+# DESCRIPTION DU CONTENU ET DE LA REPARTITION DU CODE :
 
 -> static/css : feuilles du styles de la page web
 -> templates : code source de la page web
