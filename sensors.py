@@ -163,7 +163,6 @@ class GroveButton(object):
  
     def __handle_event(self, evt):
         dt, self.__last_time = evt["time"] - self.__last_time, evt["time"]
-        # print("event index:{} event:{} pressed:{}".format(evt["index"], evt["code"], evt["pressed"]))
         if evt["code"] == Button.EV_LEVEL_CHANGED:
             if evt["pressed"]:
                 if callable(self.__on_press):
